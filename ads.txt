@@ -1,0 +1,3 @@
+# GrowBlackStyle AdSense
+# Add the official Google AdSense publisher line here after GrowBlackStyle is added
+# to the AdSense account and the publisher ID is confirmed.
