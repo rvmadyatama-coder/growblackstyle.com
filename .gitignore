@@ -1,0 +1,5 @@
+hotel-OLD/
+hotel-V9-STAGING/
+**/*.backup.ps1
+**/*.before-*
+**/*.backup
