@@ -1,3 +1,1 @@
-# GrowBlackStyle AdSense
-# Add the official Google AdSense publisher line here after GrowBlackStyle is added
-# to the AdSense account and the publisher ID is confirmed.
+google.com, pub-3739516942643993, DIRECT, f08c47fec0942fa0
