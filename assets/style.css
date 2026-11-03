@@ -1129,14 +1129,12 @@ img, video, iframe {
 .site-footer .meta{margin-top:18px}
 @media(max-width:800px){.nav.open{display:flex;flex-direction:column;align-items:flex-start;gap:8px}.nav.open a{width:100%;padding:8px 0;border-top:1px solid var(--line)}}
 
-
 /* Editorial transparency notice */
 .editorial-notice{max-width:var(--content-width,1120px);margin:1.5rem auto;padding:1.1rem 1.25rem;border:1px solid #d9e2ec;border-left:4px solid #426b91;border-radius:12px;background:#f5f8fb;color:#243447;line-height:1.65}
 .editorial-notice strong{display:block;margin-bottom:.25rem;color:#14263b}
 .editorial-notice p{margin:.25rem 0 0}
 .editorial-notice a{font-weight:650;text-decoration:underline}
 @media(max-width:640px){.editorial-notice{margin:1rem .75rem;padding:1rem;border-radius:10px}}
-
 
 /* November 2026 accessibility and mobile usability pass */
 .skip-link{position:absolute;left:12px;top:-60px;z-index:1000;background:#fff;color:#10243b;padding:10px 14px;border:2px solid #1b477f;border-radius:8px;font-weight:700}
