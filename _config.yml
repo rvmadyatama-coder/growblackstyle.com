@@ -1,0 +1,18 @@
+title: "GrowBlackStyle"
+description: "Berita otomotif, industri, bisnis, teknologi, regulasi, modifikasi, dan motorsport Indonesia."
+url: "https://growblackstyle.com"
+baseurl: ""
+
+markdown: kramdown
+
+collections:
+  berita:
+    output: true
+    permalink: /berita/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "berita"
+    values:
+      layout: "artikel"
