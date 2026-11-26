@@ -1,0 +1,47 @@
+backend:
+  name: turbo-github
+  turbo_site_id: 86b61070-99cb-4c4b-a4ab-9fae7b4562a9
+  # Authentication must be configured before CMS login is enabled.
+  # Use a secure OAuth proxy or Decap-supported authentication flow.
+  # Never place GitHub tokens or client secrets in this file.
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+locale: "id"
+publish_mode: editorial_workflow
+
+site_url: https://growblackstyle.com
+display_url: https://growblackstyle.com
+
+collections:
+  - name: "berita"
+    label: "Berita"
+    label_singular: "Artikel"
+    folder: "_berita"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    preview_path: "berita/{{slug}}/"
+    fields:
+      - { label: "Judul", name: "title", widget: "string" }
+      - { label: "Tanggal terbit", name: "date", widget: "datetime" }
+      - { label: "Penulis", name: "author", widget: "string", default: "Redaksi GROWBLACKSTYLE" }
+      - label: "Kategori"
+        name: "category"
+        widget: "select"
+        options: ["Motor", "Mobil", "Industri", "Bisnis", "Teknologi", "Regulasi", "Modifikasi", "Motorsport", "Review"]
+      - label: "Slug kategori"
+        name: "category_slug"
+        widget: "select"
+        options: ["motor", "mobil", "industri", "bisnis", "teknologi", "regulasi", "modifikasi", "motorsport", "review"]
+        default: "motor"
+      - { label: "Ringkasan SEO", name: "description", widget: "text" }
+      - { label: "Foto utama", name: "image", widget: "image", required: false }
+      - { label: "Alt foto", name: "image_alt", widget: "string", required: false }
+      - { label: "Caption foto", name: "image_caption", widget: "string", required: false }
+      - { label: "Keterangan sumber", name: "source", widget: "string", required: false }
+      - { label: "Tautan sumber", name: "source_url", widget: "string", required: false }
+      - { label: "Catatan koreksi/pembaruan", name: "correction_note", widget: "text", required: false }
+      - { label: "Isi berita", name: "body", widget: "markdown" }
