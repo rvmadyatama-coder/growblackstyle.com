@@ -3,8 +3,8 @@ title: RIVODA EXHAUST Perkenalkan Produk Terbaru dengan Desain Racing dan
   Finishing Biru Eksklusif
 date: 2026-11-27T02:18:00.000+07:00
 author: Tim Redaksi GROWBLACKSTYLE
-category: Motor
-category_slug: motor
+category: Industri
+category_slug: modifikasi
 description: RIVODA EXHAUST memperkenalkan produk knalpot terbaru dengan desain
   sporty, finishing biru iridescent, detail flame, dan karakter premium yang
   menonjolkan craftsmanship Indonesia.
