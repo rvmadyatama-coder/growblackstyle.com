@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111111">
+  {% seo %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="512x512" href="{{ '/assets/images/growblackstyle-icon-512.png' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/assets/images/growblackstyle-icon-512.png' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="alternate" type="application/atom+xml" href="{{ '/feed.xml' | relative_url }}">
+</head>
+<body>
+  <div class="topline"><div class="container"><span>INDEPENDENT MOTORCYCLE INDUSTRY MEDIA</span><span>INDONESIA <b>●</b> {{ site.time | date: "%d.%m.%Y" }}</span></div></div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand brand-logo" href="{{ '/' | relative_url }}" aria-label="GROWBLACKSTYLE Beranda"><img src="{{ '/assets/images/growblackstyle-logo-horizontal.png' | relative_url }}" alt="GROWBLACKSTYLE Automotive & Exhaust Media" style="display:block;width:min(320px,100%);height:auto;"></a>
+      <button class="menu-toggle" aria-label="Buka navigasi" aria-expanded="false">☰</button>
+      <nav class="main-nav">
+        <a href="{{ '/' | relative_url }}">Beranda</a>
+        <a href="/arsip/">Berita</a>
+        <a href="/kategori/otomotif/">Otomotif</a>
+        <a href="/kategori/industri/">Industri</a>
+        <a href="/kategori/bisnis/">Bisnis</a>
+        <a href="/kategori/teknologi/">Teknologi</a>
+        <a href="/tentang/">Tentang</a>
+      </nav>
+      <a class="header-cta" href="/kontak/">Hubungi redaksi <span>↗</span></a>
+    </div>
+  </header>
+  <main>{{ content }}</main>
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div><a class="brand brand-footer brand-logo" href="/" aria-label="GROWBLACKSTYLE Beranda"><img src="{{ '/assets/images/growblackstyle-logo-horizontal.png' | relative_url }}" alt="GROWBLACKSTYLE Automotive & Exhaust Media" style="display:block;width:min(280px,100%);height:auto;"></a><p>Media digital yang mengikuti otomotif, knalpot motor dan mobil, industri, bisnis, teknologi, serta perkembangan Indonesia.</p></div>
+      <div class="footer-links"><strong>JELAJAHI</strong><a href="/arsip/">Semua berita</a><a href="/kategori/otomotif/">Otomotif</a><a href="https://hotel.growblackstyle.com/">Direktori hotel</a><a href="/tentang/">Tentang kami</a><a href="/kontak/">Kontak redaksi</a></div>
+      <div class="footer-links"><strong>INFORMASI</strong><a href="/kebijakan-privasi/">Kebijakan privasi</a><a href="/pedoman-redaksi/">Pedoman redaksi</a><a href="/penafian/">Penafian</a></div>
+    </div>
+    <div class="container footer-bottom"><span>© {{ site.time | date: "%Y" }} GROWBLACKSTYLE. ALL RIGHTS RESERVED.</span><span>BUILT FOR THE INDUSTRY.</span></div>
+  </footer>
+  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+</body>
+</html>

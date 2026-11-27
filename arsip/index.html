@@ -1,0 +1,8 @@
+---
+layout: default
+title: "Arsip Berita"
+description: "Jelajahi seluruh berita dan laporan GROWBLACKSTYLE tentang otomotif, industri, bisnis, teknologi, dan perkembangan Indonesia."
+permalink: /arsip/
+---
+<section class="page-hero"><div class="container"><p class="eyebrow">NEWSROOM / ARCHIVE</p><h1>Arsip <span>berita.</span></h1><p>Telusuri laporan, analisis, dan cerita terbaru dari berbagai sektor yang membentuk dunia otomotif dan industri.</p></div></section>
+<section class="section"><div class="container"><div class="news-grid">{% assign posts = site.berita | sort: "date" | reverse %}{% for post in posts %}<article class="news-card"><a class="news-image" href="{{ post.url | relative_url }}">{% if post.image %}<img src="{{ post.image | relative_url }}" alt="{{ post.image_alt | default: post.title }}" loading="lazy">{% else %}<div class="image-placeholder"><span>GROWBLACKSTYLE</span></div>{% endif %}<span class="image-category">{{ post.category | default: "Berita" }}</span></a><div class="news-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %b %Y" }}</time><span>•</span>{{ post.author | default: "Redaksi" }}</div><h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3><p>{{ post.description | default: post.excerpt | strip_html | truncate: 150 }}</p><a class="read-link" href="{{ post.url | relative_url }}">Baca selengkapnya ↗</a></article>{% endfor %}</div>{% if posts.size == 0 %}<div class="empty-state"><h3>Arsip sedang disiapkan.</h3><p>Berita akan tampil di halaman ini setelah diterbitkan oleh redaksi.</p></div>{% endif %}</div></section>

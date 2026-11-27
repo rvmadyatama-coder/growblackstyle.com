@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111111">
+  {% seo %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="alternate" type="application/atom+xml" href="{{ '/feed.xml' | relative_url }}">
+</head>
+<body>
+  <div class="topline"><div class="container"><span>INDEPENDENT MOTORCYCLE INDUSTRY MEDIA</span><span>INDONESIA <b>●</b> {{ site.time | date: "%d.%m.%Y" }}</span></div></div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="{{ '/' | relative_url }}" aria-label="GROWBLACKSTYLE Beranda"><span class="brand-mark">G<span>.</span></span><span class="brand-name">GROWBLACK<span>STYLE</span><small>INDUSTRY JOURNAL</small></span></a>
+      <button class="menu-toggle" type="button" aria-label="Buka navigasi" aria-controls="primary-navigation" aria-expanded="false"><span aria-hidden="true">☰</span></button>
+      <nav class="main-nav" id="primary-navigation" aria-label="Navigasi utama">
+        <a href="{{ '/' | relative_url }}">Beranda</a>
+        <a href="{{ '/arsip/' | relative_url }}">Berita</a>
+        <a href="{{ '/kategori/otomotif/' | relative_url }}">Otomotif</a>
+        <a href="{{ '/kategori/industri/' | relative_url }}">Industri</a>
+        <a href="{{ '/kategori/bisnis/' | relative_url }}">Bisnis</a>
+        <a href="{{ '/kategori/teknologi/' | relative_url }}">Teknologi</a>
+        <a href="{{ '/tentang/' | relative_url }}">Tentang</a>
+      </nav>
+      <a class="header-cta" href="{{ '/kontak/' | relative_url }}">Hubungi redaksi <span>↗</span></a>
+    </div>
+  </header>
+  <main id="konten-utama">{{ content }}</main>
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div><a class="brand brand-footer" href="{{ '/' | relative_url }}"><span class="brand-mark">G<span>.</span></span><span class="brand-name">GROWBLACK<span>STYLE</span><small>INDUSTRY JOURNAL</small></span></a><p>Media digital yang mengikuti otomotif, industri, bisnis, teknologi, dan perkembangan Indonesia.</p></div>
+      <div class="footer-links"><strong>JELAJAHI</strong><a href="{{ '/arsip/' | relative_url }}">Semua berita</a><a href="{{ '/kategori/otomotif/' | relative_url }}">Otomotif</a><a href="https://hotel.growblackstyle.com/" target="_blank" rel="noopener noreferrer">Direktori hotel</a><a href="{{ '/tentang/' | relative_url }}">Tentang kami</a><a href="{{ '/kontak/' | relative_url }}">Kontak redaksi</a></div>
+      <div class="footer-links"><strong>INFORMASI</strong><a href="{{ '/kebijakan-privasi/' | relative_url }}">Kebijakan privasi</a><a href="{{ '/pedoman-redaksi/' | relative_url }}">Pedoman redaksi</a><a href="{{ '/penafian/' | relative_url }}">Penafian</a></div>
+    </div>
+    <div class="container footer-bottom"><span>© {{ site.time | date: "%Y" }} GROWBLACKSTYLE. ALL RIGHTS RESERVED.</span><span>BUILT FOR THE INDUSTRY.</span></div>
+  </footer>
+  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+</body>
+</html>

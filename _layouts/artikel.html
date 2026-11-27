@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<article class="article-shell">
+  <div class="article-head">
+    <a class="back-link" href="/arsip/">← Kembali ke berita</a>
+    <p class="eyebrow">{{ page.category | default: "Berita" }}</p>
+    <h1>{{ page.title }}</h1>
+    <p class="article-deck">{{ page.description | default: page.excerpt | strip_html }}</p>
+    <div class="article-byline"><span>Oleh <strong>{{ page.author | default: "Redaksi GROWBLACKSTYLE" }}</strong></span><span>{{ page.date | date: "%d %B %Y" }}</span></div>
+  </div>
+  {% if page.image %}<figure class="article-cover"><img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}"><figcaption>{{ page.image_caption }}</figcaption></figure>{% endif %}
+  <div class="article-body">{{ content }}</div>
+  {% if page.source %}<p class="source-note"><strong>Sumber:</strong> {{ page.source }}</p>{% endif %}
+  <div class="article-end"><span>GROWBLACKSTYLE / INDUSTRY JOURNAL</span><a href="/arsip/">Berita lainnya ↗</a></div>
+</article>

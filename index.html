@@ -1,55 +1,79 @@
---- layout: default title: "Berita Industri Knalpot & Otomotif Indonesia" description: "Kabar terbaru industri knalpot, teknologi, produsen lokal, regulasi, modifikasi, dan motorsport Indonesia." ---
-INDEPENDENT AUTOMOTIVE JOURNALISM
+---
+layout: default
+title: "Berita Industri Knalpot & Otomotif Indonesia"
+description: "Kabar terbaru industri knalpot, teknologi, produsen lokal, regulasi, modifikasi, dan motorsport Indonesia."
+---
+<section class="hero-grid">
+  <div class="hero-copy">
+    <p class="eyebrow">INDEPENDENT AUTOMOTIVE JOURNALISM</p>
+    <h1>Membaca perubahan dunia <span>otomotif dan industri.</span></h1>
+    <p class="hero-intro">Berita, analisis, dan cerita tentang otomotif, industri, bisnis, teknologi, serta perkembangan yang membentuk Indonesia.</p>
+    <a class="button button-light" href="#berita-terbaru">Jelajahi berita <span>↗</span></a>
+  </div>
+  <div class="hero-art" role="img" aria-label="Fotografi detail knalpot motor stainless steel">
+    <div class="hero-art-label"><span class="live-dot"></span> INDUSTRY REPORT</div>
+    <div class="hero-art-bottom"><span>01 / INDUSTRI</span><strong>Built by makers.<br>Driven by passion.</strong></div>
+  </div>
+</section>
 
-Membaca perubahan dunia otomotif dan industri.
-Berita, analisis, dan cerita tentang otomotif, industri, bisnis, teknologi, serta perkembangan yang membentuk Indonesia.
-
-Jelajahi berita ↗
-INDUSTRY REPORT
-01 / INDUSTRIBuilt by makers.
-Driven by passion.
-{% assign sorted_posts = site.berita | sort: "date" | reverse %} {% if sorted_posts.size > 0 %}
-{% assign lead = sorted_posts.first %} {% if lead.image %}{{ lead.image_alt | default: lead.title }}{% else %}
-GROWBLACKSTYLE / HEADLINE
+{% assign sorted_posts = site.berita | sort: "date" | reverse %}
+{% if sorted_posts.size > 0 %}
+<section class="lead-story container" aria-label="Berita utama">
+  {% assign lead = sorted_posts.first %}
+  <a class="lead-image" href="{{ lead.url | relative_url }}">
+    {% if lead.image %}<img src="{{ lead.image | relative_url }}" alt="{{ lead.image_alt | default: lead.title }}">{% else %}<div class="image-placeholder"><span>GROWBLACKSTYLE / HEADLINE</span></div>{% endif %}
+  </a>
+  <div class="lead-copy"><p class="eyebrow">HEADLINE / {{ lead.category | default: "BERITA UTAMA" }}</p><div class="news-meta"><time datetime="{{ lead.date | date_to_xmlschema }}">{{ lead.date | date: "%d %b %Y" }}</time><span>•</span>{{ lead.author | default: "Redaksi" }}</div><h2><a href="{{ lead.url | relative_url }}">{{ lead.title }}</a></h2><p>{{ lead.description | default: lead.excerpt | strip_html | truncate: 210 }}</p><a class="read-link" href="{{ lead.url | relative_url }}">Baca laporan ↗</a></div>
+</section>
 {% endif %}
-HEADLINE / {{ lead.category | default: "BERITA UTAMA" }}
 
-{{ lead.date | date: "%d %b %Y" }}•{{ lead.author | default: "Redaksi" }}
-{{ lead.title }}
-{{ lead.description | default: lead.excerpt | strip_html | truncate: 210 }}
+<section class="ticker" aria-label="Topik utama">
+  <span>FOCUS</span><b>INDUSTRI LOKAL</b><i>✳</i><b>TEKNOLOGI</b><i>✳</i><b>REGULASI</b><i>✳</i><b>MOTORSPORT</b><i>✳</i><b>MODIFIKASI</b>
+</section>
 
-Baca laporan ↗
-{% endif %}
-FOCUSINDUSTRI LOKAL✳TEKNOLOGI✳REGULASI✳MOTORSPORT✳MODIFIKASI
-THE LATEST
+<section class="section" id="berita-terbaru">
+  <div class="section-heading">
+    <div><p class="eyebrow">THE LATEST</p><h2>Kabar terbaru<span>.</span></h2></div>
+    <a class="text-link" href="{{ '/arsip/' | relative_url }}">Semua berita <span>↗</span></a>
+  </div>
+  <div class="filter-row" id="category-filters">
+    <button class="filter active" type="button" data-category="all" aria-pressed="true">Semua</button>
+    {% assign cats = site.data.categories %}
+    {% for cat in cats %}
+      <button class="filter" type="button" data-category="{{ cat.slug }}" aria-pressed="false">{{ cat.name }}</button>
+    {% endfor %}
+  </div>
+  <div class="news-grid" id="news-grid">
+    {% assign sorted_posts = site.berita | sort: "date" | reverse %}
+    {% for post in sorted_posts limit: 9 %}
+      <article class="news-card" data-category="{{ post.category_slug | default: 'otomotif' }}">
+        <a class="news-image" href="{{ post.url | relative_url }}">
+          {% if post.image %}<img src="{{ post.image | relative_url }}" alt="{{ post.image_alt | default: post.title }}" loading="lazy">{% else %}<div class="image-placeholder"><span>GROWBLACKSTYLE</span></div>{% endif %}
+          <span class="image-category">{{ post.category | default: "Industri" }}</span>
+        </a>
+        <div class="news-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %b %Y" }}</time><span>•</span><span>{{ post.author | default: "Redaksi" }}</span></div>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p>{{ post.excerpt | strip_html | truncate: 145 }}</p>
+        <a class="read-link" href="{{ post.url | relative_url }}">Baca selengkapnya <span>↗</span></a>
+      </article>
+    {% endfor %}
+  </div>
+  {% if site.berita.size == 0 %}
+  <div class="empty-state"><span class="empty-mark">G.</span><h3>Ruang berita sedang disiapkan.</h3><p>Artikel pertama akan muncul di sini setelah diterbitkan melalui ruang redaksi.</p></div>
+  {% endif %}
+</section>
 
-Kabar terbaru.
-Semua berita ↗
-Semua {% assign cats = site.data.categories %} {% for cat in cats %} {{ cat.name }} {% endfor %}
-{% assign sorted_posts = site.berita | sort: "date" | reverse %} {% for post in sorted_posts limit: 9 %}
-{% if post.image %}{{ post.image_alt | default: post.title }}{% else %}
-GROWBLACKSTYLE
-{% endif %} {{ post.category | default: "Industri" }}
-{{ post.date | date: "%d %b %Y" }}•{{ post.author | default: "Redaksi" }}
-{{ post.title }}
-{{ post.excerpt | strip_html | truncate: 145 }}
+<section class="editorial-band">
+  <div><p class="eyebrow">FROM INDUSTRY TO EVERYDAY LIFE</p><h2>Melihat lebih dekat<br><em>industri yang bergerak.</em></h2></div>
+  <p>GROWBLACKSTYLE mengikuti dinamika otomotif, industri, bisnis, teknologi, kebijakan, dan manusia di balik perubahan. Liputan otomotif menjadi fokus utama, dengan cakupan yang lebih luas dan relevan bagi pembaca.</p>
+  <a class="button button-outline" href="{{ '/tentang/' | relative_url }}">Tentang redaksi <span>↗</span></a>
+</section>
 
-Baca selengkapnya ↗
-{% endfor %}
-{% if site.berita.size == 0 %}
-G.
-Ruang berita sedang disiapkan.
-Artikel pertama akan muncul di sini setelah diterbitkan melalui ruang redaksi.
-
-{% endif %}
-FROM INDUSTRY TO EVERYDAY LIFE
-
-Melihat lebih dekat
-industri yang bergerak.
-GROWBLACKSTYLE mengikuti dinamika otomotif, industri, bisnis, teknologi, kebijakan, dan manusia di balik perubahan. Liputan otomotif menjadi fokus utama, dengan cakupan yang lebih luas dan relevan bagi pembaca.
-
-Tentang redaksi ↗
-EXPLORE THE BEAT
-
-Jelajahi topik.
-{% for cat in site.data.categories %} {{ cat.number }}{{ cat.name }}↗ {% endfor %}
+<section class="section category-section">
+  <div class="section-heading"><div><p class="eyebrow">EXPLORE THE BEAT</p><h2>Jelajahi topik<span>.</span></h2></div></div>
+  <div class="topic-grid">
+    {% for cat in site.data.categories %}
+    <a class="topic-card" href="{{ '/kategori/' | append: cat.slug | append: '/' | relative_url }}"><span>{{ cat.number }}</span><strong>{{ cat.name }}</strong><i>↗</i></a>
+    {% endfor %}
+  </div>
+</section>

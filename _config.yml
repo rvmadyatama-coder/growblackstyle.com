@@ -1,18 +1,30 @@
-title: "GrowBlackStyle"
-description: "Berita otomotif, industri, bisnis, teknologi, regulasi, modifikasi, dan motorsport Indonesia."
+title: "GROWBLACKSTYLE"
+description: "Media digital tentang otomotif, industri, bisnis, teknologi, regulasi, dan perkembangan Indonesia."
 url: "https://growblackstyle.com"
 baseurl: ""
-
+lang: "id-ID"
+timezone: "Asia/Jakarta"
 markdown: kramdown
-
+permalink: /berita/:categories/:title/
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+exclude:
+  - README.md
+  - README-ID.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
 collections:
   berita:
     output: true
-    permalink: /berita/:name/
-
+    permalink: /berita/:categories/:title/
 defaults:
   - scope:
       path: ""
-      type: "berita"
+      type: berita
     values:
-      layout: "artikel"
+      layout: artikel
+      lang: id
