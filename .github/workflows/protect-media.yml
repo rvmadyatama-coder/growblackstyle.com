@@ -1,6 +1,9 @@
 name: Protect News Media
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
@@ -19,7 +22,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Verify on main
+        if: github.event_name == 'push'
+        run: echo "Protect News Media check registered on main."
+
       - name: Block deleted news media
+        if: github.event_name == 'pull_request'
         shell: bash
         run: |
           set -euo pipefail
