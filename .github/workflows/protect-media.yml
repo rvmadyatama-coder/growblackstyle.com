@@ -10,6 +10,7 @@ permissions:
 
 jobs:
   protect-media:
+    name: protect-media
     runs-on: ubuntu-latest
 
     steps:
@@ -18,23 +19,21 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Detect deleted media files
+      - name: Block deleted news media
         shell: bash
         run: |
-          set -e
+          set -euo pipefail
 
           BASE="${{ github.event.pull_request.base.sha }}"
           HEAD="${{ github.event.pull_request.head.sha }}"
 
-          DELETED=$(git diff --no-renames --name-status "$BASE" "$HEAD" | awk '$1 == "D" && $2 ~ /^assets\/uploads\// {print $2}')
+          DELETED=$(git diff --no-renames --name-status "$BASE" "$HEAD" |
+            awk '$1 == "D" && $2 ~ /^assets\/uploads\// {print $2}')
 
           if [ -n "$DELETED" ]; then
-            echo "ERROR: Media files were deleted:"
+            echo "::error::Penghapusan media berita diblokir."
             echo "$DELETED"
-            echo ""
-            echo "Media deletion requires manual review."
             exit 1
           fi
 
-          echo "No deleted media files detected."
-
+          echo "PASS: Tidak ditemukan penghapusan media berita."
